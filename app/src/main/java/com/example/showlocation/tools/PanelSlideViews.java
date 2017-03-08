@@ -3,7 +3,6 @@ package com.example.showlocation.tools;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +26,7 @@ public class PanelSlideViews implements View.OnTouchListener {
 
     private float expandedStateHeight;
     private float collapsedStateHeight;
-    AppCompatActivity activity;
+
 
     private SWIPE_DIRECTION direction;
     private final int CLICK_ACTION_THRESHHOLD;
@@ -35,24 +34,20 @@ public class PanelSlideViews implements View.OnTouchListener {
     public View contentView;
     private boolean isExpanded;
     private PanelSlideListener panelSlideListener;
-    //    float fiveDp;
-//    private final float firstValueControlViewY;
-//    private final float firstValueControlViewX;
+
 
     public PanelSlideViews(AppCompatActivity activity, View controlView, View contentView, float expandedStateHeight, float collapsedStateHeight, SWIPE_DIRECTION direction) {
         this.controlView = controlView;
-        this.activity = activity;
         this.contentView = contentView;
         this.expandedStateHeight = expandedStateHeight;
-//        this.expandedStateHeight = expandedStateHeight;
+
         this.collapsedStateHeight = collapsedStateHeight;
         this.direction = direction;
-//        firstValueControlViewY = controlView.getY();
-//        firstValueControlViewX = controlView.getX();
 
-        CLICK_ACTION_THRESHHOLD = Glob.convertDpToPx(activity, R.dimen.click_dp);
 
-//        controlView.setOnTouchListener(this);
+        CLICK_ACTION_THRESHHOLD = Helper.convertDpToPx(activity, R.dimen.click_dp);
+
+
 
     }
 
@@ -91,8 +86,7 @@ public class PanelSlideViews implements View.OnTouchListener {
         mAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationEnd(Animator animator) {
-                //Height=0, but it set visibility to GONE
-//                contentView.setVisibility(View.GONE);
+
                 if (panelSlideListener != null)
                     panelSlideListener.onCollapsed();
             }
@@ -118,14 +112,12 @@ public class PanelSlideViews implements View.OnTouchListener {
         mAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationEnd(Animator animator) {
-                //Height=0, but it set visibility to GONE
                 if (panelSlideListener != null)
                     panelSlideListener.onExpanded();
             }
 
             @Override
             public void onAnimationStart(Animator animator) {
-//                contentView.setVisibility(View.VISIBLE);
             }
 
             @Override

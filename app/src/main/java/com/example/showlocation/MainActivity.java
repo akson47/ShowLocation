@@ -8,9 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.showlocation.tools.Glob;
+import com.example.showlocation.tools.Helper;
 import com.example.showlocation.tools.PanelSlideViews;
 
 import java.io.IOException;
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        int expandedHeight = Glob.convertDpToPx(MainActivity.this, R.dimen.menu_height);
+        int expandedHeight = Helper.convertDpToPx(MainActivity.this, R.dimen.menu_height);
         panelSlideViews = new PanelSlideViews(MainActivity.this, linearHideShow, linearBottomMenuParent, 0, expandedHeight, PanelSlideViews.SWIPE_DIRECTION.BOTTOM_TO_UP);
         panelSlideViews.active();
         panelSlideViews.setPanelSlideListener(new PanelSlideViews.PanelSlideListener() {

@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 
 
-public class Glob {
+public class Helper {
 
 
 
